@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     depends_on: 
       - wordpress
+    networks:
+      - "inception"
     ports:
       - "443:443"
     volumes:
@@ -19,25 +21,40 @@ services:
     restart: unless-stopped
     depends_on: 
       - mariadb
+    networks:
+      - "inception"
+    expose:
+      - "9000"
     volumes:
       - wordpress_data:/var/www/html
+    env_file:
+      - .env
 
   mariadb:
     container_name: mariadb-cont
     build: ./requirements/mariadb/.
     restart: unless-stopped
+    networks:
+      - "inception"
+    expose:
+      - "3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
 
 volumes:
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/ngordobi/data/wordpress
       o: bind
+      device: ./home/ngordobi/data/wordpress
   mariadb_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/ngordobi/data/mariadb
       o: bind
+      device: ./home/ngordobi/data/mariadb
 
+networks:
+  inception:
+    driver: bridge
