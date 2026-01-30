@@ -1,0 +1,43 @@
+
+name: inception
+
+services:
+  nginx:
+    container_name: nginx-cont
+    build: ./requirements/nginx/.
+    restart: unless-stopped
+    depends_on: 
+      - wordpress
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress_data:/var/www/html
+
+  wordpress:
+    container_name: wordpress-cont
+    build: ./requirements/wordpress/.
+    restart: unless-stopped
+    depends_on: 
+      - mariadb
+    volumes:
+      - wordpress_data:/var/www/html
+
+  mariadb:
+    container_name: mariadb-cont
+    build: ./requirements/mariadb/.
+    restart: unless-stopped
+
+volumes:
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ngordobi/data/wordpress
+      o: bind
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ngordobi/data/mariadb
+      o: bind
+
