@@ -7,4 +7,5 @@ RUN mkdir /run/mysqld
 
 COPY tools/mariadb-run.sh .
 RUN chmod +x ./mariadb-run.sh
-ENTRYPOINT ["./mariadb-run.sh"]
+ENTRYPOINT ["sh", "./mariadb-run.sh"]
+

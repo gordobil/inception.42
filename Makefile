@@ -3,7 +3,11 @@ DC_FILE		= ./src/docker-compose.yml
 
 all: build
 
-build:
+data:
+	@if [ ! -d "/home/ngordobi/data/mariadb" ] && [ !! -d "/home/ngordobi/data/wordpress;" ]; then \
+	mkdir -p /home/ngordobi/data/mariadb && mkdir -p /home/ngordobi/data/wordpress; fi
+
+build:	data
 	@docker compose -f $(DC_FILE) up --build -d
 
 up:
