@@ -5,9 +5,9 @@ RUN apt update && apt upgrade -y && apt install -y nginx openssl
 
 RUN mkdir -p ${CERT_FOLDER}
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${CERT_FOLDER}/${KEY} -out ${CERT_FOLDER}/${CERTIFICATE} -subj "/C=${COUNTRY}/ST=${STATE}/L=${LOCALITY}/OU=${UNIT}/CN=${COMMON_NAME}"
-#RUN chmod 600 ${CERT_FOLDER}/${KEY} && chmod 644 ${CERT_FOLDER}/${CERTIFICATE}
-#RUN chmod 600 /etc/nginx/certs/nginx-certificate.key && chmod 644 /etc/nginx/certs/nginx-certificate.crt
+RUN chmod 600 ${CERT_FOLDER}/${KEY} && chmod 644 ${CERT_FOLDER}/${CERTIFICATE}
 
-COPY ./conf/nginx.conf ./tmp/nginx.conf
+COPY conf/nginx.conf ./tmp/nginx.conf
+RUN envsubst '$CERT_FOLDER $KEY $CERTIFICATE $COMMON_NAME' < /tmp/nginx.conf > /etc/nginx/sites-available/default
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
