@@ -7,6 +7,5 @@ echo "GRANT ALL PRIVILEGES ON *.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD'
 echo "FLUSH PRIVILEGES;" >> $DB_SCRIPT_SQL
 sleep 5
 
-mysql_install_db
 mysqld
 

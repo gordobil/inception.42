@@ -16,7 +16,6 @@ services:
         - ORGANIZATION
         - UNIT
         - COMMON_NAME
-    restart: unless-stopped
     depends_on: 
       - wordpress
     networks:
@@ -29,7 +28,6 @@ services:
   wordpress:
     container_name: wordpress-cont
     build: ./requirements/wordpress/.
-    restart: unless-stopped
     depends_on: 
       - mariadb
     networks:
@@ -44,7 +42,6 @@ services:
   mariadb:
     container_name: mariadb-cont
     build: ./requirements/mariadb/.
-    restart: unless-stopped
     networks:
       - inception
     expose:
