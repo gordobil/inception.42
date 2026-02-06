@@ -4,6 +4,7 @@ name: inception
 services:
   nginx:
     container_name: nginx-cont
+    restart: on-failure
     build:
       context: ./requirements/nginx/.
       args:
@@ -28,6 +29,7 @@ services:
   wordpress:
     container_name: wordpress-cont
     build: ./requirements/wordpress/.
+    restart: on-failure
     depends_on: 
       - mariadb
     networks:
@@ -42,6 +44,7 @@ services:
   mariadb:
     container_name: mariadb-cont
     build: ./requirements/mariadb/.
+    restart: on-failure
     networks:
       - inception
     expose:
