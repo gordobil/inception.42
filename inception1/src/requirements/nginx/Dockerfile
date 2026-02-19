@@ -5,7 +5,7 @@ RUN apt update && apt upgrade -y && apt install -y nginx openssl gettext-base
 EXPOSE 443
 
 RUN mkdir -p ${CERT_FOLDER}
-RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out ${CERT_FOLDER}/${CERTIFICATE} -keyout ${CERT_FOLDER}/${KEY} -subj "/C=${COUNTRY}/ST=${STATE}/L=${LOCALITY}/OU=${UNIT}/CN=${COMMON_NAME}"
+RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out ${CERT_FOLDER}/${CERTIFICATE} -keyout ${CERT_FOLDER}/${KEY} -subj "/C=${COUNTRY}/ST=${STATE}/L=${LOCALITY}/O=${ORGANIZATION}/OU=${UNIT}/CN=${COMMON_NAME}"
 RUN chmod 600 ${CERT_FOLDER}/${KEY} && chmod 644 ${CERT_FOLDER}/${CERTIFICATE}
 
 COPY conf/nginx.conf ./tmp/nginx.conf
