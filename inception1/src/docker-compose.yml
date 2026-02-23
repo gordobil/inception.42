@@ -37,15 +37,15 @@ services:
     build:
       context: ./requirements/nginx/.
       args:
-        - CERT_FOLDER
-        - CERTIFICATE
-        - KEY
-        - COUNTRY
-        - STATE
-        - LOCALITY
-        - ORGANIZATION
-        - UNIT
-        - COMMON_NAME
+        CERT_FOLDER: ${CERT_FOLDER}
+        CERTIFICATE: ${CERTIFICATE}
+        KEY: ${KEY}
+        COUNTRY: ${COUNTRY}
+        STATE: ${STATE}
+        LOCALITY: ${LOCALITY}
+        ORGANIZATION: ${ORGANIZATION}
+        UNIT: ${UNIT}
+        COMMON_NAME: ${COMMON_NAME}
     depends_on: 
       - wordpress
     networks:
