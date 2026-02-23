@@ -15,6 +15,9 @@ services:
       - mariadb_vol:/var/lib/mysql
     env_file:
       - .env
+    secrets:
+      - db_root_password
+      - db_password
 
   wordpress:
     container_name: wordpress-cont
@@ -30,10 +33,14 @@ services:
       - wordpress_vol:/var/www/html
     env_file:
       - .env
+    secrets:
+      - wp_admin_password
+      - wp_password
+      - db_password
 
   nginx:
     container_name: nginx-cont
-#    restart: on-failure
+    restart: on-failure
     build:
       context: ./requirements/nginx/.
       args:
@@ -52,7 +59,6 @@ services:
       - inception
     ports:
       - "443:443"
-      - "80:80"
     volumes:
       - wordpress_vol:/var/www/html
 
@@ -62,15 +68,25 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/ngordobi/data/wordpress
+      device: /home/${USER}/data/wordpress
   mariadb_vol:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/ngordobi/data/mariadb
+      device: /home/${USER}/data/mariadb
 
 networks:
   inception:
     driver: bridge
+
+secrets:
+  db_password:
+    file: ../secrets/db_password
+  db_root_password:
+    file: ../secrets/db_root_password
+  wp_admin_password:
+    file: ../secrets/wp_admin_password
+  wp_password:
+    file: ../secrets/wp_password
 
