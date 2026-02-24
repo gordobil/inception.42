@@ -1,1 +1,1 @@
-https://github.com/Ryatsuo/Inception/blob/master/README.md
+DOCUMENTATION EXAMPLE: https://github.com/Ryatsuo/Inception/blob/master/README.md
