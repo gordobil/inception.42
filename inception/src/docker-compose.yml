@@ -12,12 +12,15 @@ services:
     expose:
       - "3306"
     volumes:
-      - mariadb_vol:/var/lib/mysql
+      - mariadb-vol:/var/lib/mysql
     env_file:
       - .env
     secrets:
       - db_root_password
       - db_password
+    environment:
+      DB_ROOT_PASSWORD: /run/secrets/db_root_password
+      DB_PASSWORD: /run/secrets/db_password
 
   wordpress:
     container_name: wordpress-cont
@@ -30,7 +33,7 @@ services:
     expose:
       - "9000"
     volumes:
-      - wordpress_vol:/var/www/html
+      - wordpress-vol:/var/www/html
     env_file:
       - .env
     secrets:
@@ -60,16 +63,16 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress_vol:/var/www/html
+      - wordpress-vol:/var/www/html
 
 volumes:
-  wordpress_vol:
+  wordpress-vol:
     driver: local
     driver_opts:
       type: none
       o: bind
       device: /home/${USER}/data/wordpress
-  mariadb_vol:
+  mariadb-vol:
     driver: local
     driver_opts:
       type: none

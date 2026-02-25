@@ -13,6 +13,9 @@ init_file = /etc/mysql/init.sql
 # * Basic Settings
 #
 
+skip-name-resolve
+skip-host-cache
+init_connect		= 'SET NAMES utf8mb4'
 user                    = root
 pid-file                = /run/mysqld/mysqld.pid
 basedir                 = /usr
