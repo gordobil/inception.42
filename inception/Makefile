@@ -1,7 +1,7 @@
 
 DC_FILE		= ./src/docker-compose.yml
 
-all: 		build
+all:	build
 
 data:
 		@if [ ! -d "/home/$(USER)/data" ]; then sudo mkdir -p /home/$(USER)/data; fi
@@ -24,11 +24,17 @@ secrets:
 		fi
 
 
-build:		data secrets
+build:	data secrets
 		@docker compose -f $(DC_FILE) up --build -d
 
 up:
 		@docker compose -f $(DC_FILE) up -d
+
+status:
+		@docker compose -f $(DC_FILE) ps -a
+
+logs:
+		@docker compose -f $(DC_FILE) logs
 
 restart:
 		@docker compose -f $(DC_FILE) restart
@@ -39,7 +45,7 @@ stop:
 down:
 		@docker compose -f $(DC_FILE) down
 
-clean:
+fclean:
 		@sudo rm -rf /home/$(USER)/data/mariadb && sudo rm -rf /home/$(USER)/data/wordpress
 		@docker compose -f $(DC_FILE) down -v --rmi all --remove-orphans
 

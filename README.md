@@ -16,3 +16,23 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 
 ## Instructions
 
+> For a complete step-by-step setup guide, see [DEV_DOC.md](DEV_DOC.md).
+
+1.  Install Docker Engine, Docker Compose and Make.
+2.  Fill in the variables in `src/.env`.
+3.  Build and run: `make`
+4.  Fill in your desired passwords.
+
+```bash
+make (all)      # build + up
+make build      # data + secrets
+make data       # Create host data directories
+make secrets    # Create and fill password files
+make up         # Start containers
+make status     # Show running containers
+make logs       # Show container logs
+make stop       # Stop containers
+make restart    # Restart containers
+make fclean     # Stop and remove containers
+make re         # clean + build + up
+```
