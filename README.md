@@ -24,7 +24,7 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 4.  Fill in your desired passwords.
 
 ```bash
-make (all)      # build + up
+make            # build + up
 make build      # data + secrets
 make data       # Create host data directories
 make secrets    # Create and fill password files
