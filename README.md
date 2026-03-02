@@ -4,9 +4,9 @@ _This project has been created as part of the 42 curriculum by ngordobi._
 
 ## Description
 
-Inception is a **system administration project** focused on containerized infrastructure using Docker. The goal is to build a secure, multi service architecture, composed of a server (NGINX), a database (MariaDB) and a website (Wordpress); each one running in its own dedicated Docker container and built from custom Docker images.
+Inception is a **system administration project** focused on **containerized infrastructure using Docker**. The goal is to build a secure, multi service architecture, composed of a server (NGINX), a database (MariaDB) and a website (Wordpress); each one running in its own dedicated Docker container and built from custom Docker images.
 
-The project uses *Docker containers instead of virtual machines*, because virtual machines run a full operating system, which makes them heavier and slower; and Docker containers share the host system’s kernel, making them lighter, faster to start, and more resource-efficient.
+The project uses ***Docker containers instead of virtual machines***, because virtual machines run a full operating system, which makes them heavier and slower; and Docker containers share the host system’s kernel, making them lighter, faster to start, and more resource-efficient.
 
 ***Secrets and environment variables*** are both used to pass configuration data to containers, but secrets are designed for sensitive information like passwords, and are stored more securely; environment variables are easier to use but can be exposed in container metadata, making them less secure for confidential data.
 
