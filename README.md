@@ -34,5 +34,5 @@ make logs       # Show container logs
 make stop       # Stop containers
 make restart    # Restart containers
 make fclean     # Stop and remove containers
-make re         # clean + build + up
+make re         # fclean + build + up
 ```
