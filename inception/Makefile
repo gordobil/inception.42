@@ -75,6 +75,22 @@ status:
 logs:
 		@docker compose -f $(DC_FILE) logs
 
+help:
+		@echo "\n MAKEFILE COMMAND GUIDE:\n"
+		@echo "  ¬ make ----------------- build + up"
+		@echo "  ¬ make build ----------- data + secrets + env"
+		@echo "  ¬ make data ------------ Create host data directories"
+		@echo "  ¬ make secrets --------- Create and fill password files"
+		@echo "  ¬ make env ------------- Create and fill .env file"
+		@echo "  ¬ make up -------------- Run containers"
+		@echo "  ¬ make status ---------- Show running containers"
+		@echo "  ¬ make logs ------------ Show container logs"
+		@echo "  ¬ make help ------------ Makefile command guide"
+		@echo "  ¬ make stop ------------ Stop containers"
+		@echo "  ¬ make restart --------- Restart containers"
+		@echo "  ¬ make fclean ---------- Stop and remove containers"
+		@echo "  ¬ make re -------------- fclean + build + up\n"
+
 restart:
 		@docker compose -f $(DC_FILE) restart
 
