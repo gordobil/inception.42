@@ -11,20 +11,59 @@ data:
 secrets:	
 		@if [ ! -d "./secrets" ]; then \
 		sudo mkdir -p ./secrets; \
-		sudo touch ./secrets/db_password ./secrets/db_root_password;	\
+		sudo touch ./secrets/db_password ./secrets/db_root_password; \
 		sudo touch ./secrets/wp_admin_password ./secrets/wp_password; \
-		echo "Choose a password for 'db_password':"; \
-		read DB_PASSWORD && echo $$DB_PASSWORD | sudo tee ./secrets/db_password > /dev/null; \
-		echo "Choose a password for 'db_root_password':"; \
-		read DB_ROOT_PASSWORD && echo $$DB_ROOT_PASSWORD | sudo tee ./secrets/db_root_password > /dev/null; \
-		echo "Choose a password for 'wp_admin_password':"; \
-		read WP_ADMIN_PASSWORD && echo $$WP_ADMIN_PASSWORD | sudo tee ./secrets/wp_admin_password > /dev/null; \
-		echo "Choose a password for 'wp_password':"; \
-		read WP_PASSWORD && echo $$WP_PASSWORD | sudo tee ./secrets/wp_password > /dev/null; \
+		echo "Database root password:"; \
+		read DB_ROOT_PASSWORD && echo $$DB_ROOT_PASSWORD >> ./secrets/db_root_password > /dev/null; \
+		echo "Database user password:"; \
+		read DB_PASSWORD && echo $$DB_PASSWORD >> ./secrets/db_password > /dev/null; \
+		echo "Site admin password:"; \
+		read WP_ADMIN_PASSWORD && echo $$WP_ADMIN_PASSWORD >> ./secrets/wp_admin_password > /dev/null; \
+		echo "Site user password:"; \
+		read WP_PASSWORD && echo $$WP_PASSWORD >> ./secrets/wp_password > /dev/null; \
+		fi
+		@echo "\n";
+
+env:
+		@if [ ! -f "./src/.env" ]; then \
+		sudo touch ./src/.env; \
+		echo "Database user:"; \
+		read DB_USER && echo "DB_USER=$$DB_USER" >> ./src/.env; \
+		echo "DB_NAME=wordpress" >> ./src/.env; \
+		echo "DB_HOST=mariadb" >> ./src/.env; \
+		echo "DB_SCRIPT_SQL=/etc/mysql/init.sql\n" >> ./src/.env; \
+		echo "URL (yourUsername.42.fr):"; \
+		read WP_URL && echo "WP_URL=$$WP_URL" >> ./src/.env; \
+		echo "WP_FULL_URL=https://$$WP_URL" >> ./src/.env; \
+		echo "Site title:"; \
+		read WP_TITLE && echo "WP_TITLE=$$WP_TITLE" >> ./src/.env; \
+		echo "Site admin username:"; \
+		read WP_ADMIN_USER && echo "WP_ADMIN_USER=$$WP_ADMIN_USER" >> ./src/.env; \
+		echo "Site admin email:"; \
+		read WP_ADMIN_EMAIL && echo "WP_ADMIN_EMAIL=$$WP_ADMIN_EMAIL" >> ./src/.env; \
+		echo "Site user:"; \
+		read WP_USER && echo "WP_USER=$$WP_USER" >> ./src/.env; \
+		echo "Site user email:"; \
+		read WP_EMAIL && echo "WP_EMAIL=$$WP_EMAIL\n" >> ./src/.env; \
+		echo "CERT_FOLDER=/etc/nginx/certs" >> ./src/.env; \
+		echo "CERTIFICATE=nginx-selfsigned.crt" >> ./src/.env; \
+		echo "KEY=nginx-selfsigned.key\n" >> ./src/.env; \
+		echo "Country (abbreviation in uppercase):"; \
+		read COUNTRY && echo "COUNTRY=$$COUNTRY" >> ./src/.env; \
+		echo "State:"; \
+		read STATE && echo "STATE=$$STATE" >> ./src/.env; \
+		echo "Locality:"; \
+		read LOCALITY && echo "LOCALITY=$$LOCALITY" >> ./src/.env; \
+		echo "Organization:"; \
+		read ORGANIZATION && echo "ORGANIZATION=$$ORGANIZATION" >> ./src/.env; \
+		echo "Unit:"; \
+		read UNIT && echo "UNIT=$$UNIT" >> ./src/.env; \
+		echo "Common name:"; \
+		echo "COMMON_NAME=$$COMMON_NAME" >> ./src/.env > /dev/null; \
 		fi
 
 
-build:	data secrets
+build:	data secrets env
 		@docker compose -f $(DC_FILE) up --build -d
 
 up:
@@ -49,5 +88,5 @@ fclean:
 		@sudo rm -rf /home/$(USER)/data/mariadb && sudo rm -rf /home/$(USER)/data/wordpress
 		@docker compose -f $(DC_FILE) down -v --rmi all --remove-orphans
 
-re: 		stop clean all
+re: 		stop fclean all
 

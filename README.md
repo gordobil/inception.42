@@ -22,6 +22,7 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 2.  Fill in the variables in `src/.env`.
 3.  Build and run: `make`
 4.  Fill in your desired passwords.
+4.  Fill in your environment variables.
 
 ```bash
 make            # build + up
