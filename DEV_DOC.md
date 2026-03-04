@@ -56,6 +56,7 @@ Both environment variables and secrets or passwords are submited by the user jus
 
 ### Repository structure
 
+```
 .
 ├── DEV_DOC_.md
 ├── .gitignore
@@ -87,5 +88,6 @@ Both environment variables and secrets or passwords are submited by the user jus
 │           └── tools
 │               └── wp-install.sh
 └── USER_DOC.md
+```
 
 > The *marked* directories and files are created when the project is cmpiled.
