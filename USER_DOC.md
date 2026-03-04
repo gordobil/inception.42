@@ -21,8 +21,13 @@ The Inception stack runs three services that work together to host a self-manage
 2.  Build and run: `make` (in the root repository).
 3.  Fill in your desired passwords.
 4.  Fill in your environment variables.
-5.  To check that the project started correctly: `make status`.
-6.  Open a browser and go to: `https://$(URL)`
+5.  To check that the project started correctly and all the services are running: `make status`.
+6.  Open a browser and go to: `https://$(URL)`.
+    The certificate is self-signed. Your browser will show a security warning. Click **Advanced → Accept the risk and continue**.
+7.  Go to `https://$(URL)/wp-admin`to access the administration panel.
+8.  Log in with the WordPress anministrator credentials.
+
+> All the credentials and variables previously filled are stored in `srcs/.env`. For more information, see [DEV_DOC.md](DEV_DOC.md).
 
 ### Stop the project
 
