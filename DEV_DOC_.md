@@ -13,22 +13,23 @@ Both environment variables and secrets or passwords are submited by the user jus
 | ----------------------- | --------------------------------------------- |
 | `BD_NAME`               | WordPress database name                       |
 | ***`DB_USER`***         | MariaDB application user                      |
-| `DB_HOST`               | Password for the application user             |
-| `DB_SCRIPT_SQL`         | MariaDB root password                         |
-| `WP_URL`                | Must match `MYSQL_DATABASE`                   |
-| `WP_FULL_URL`           | Must match `MYSQL_USER`                       |
-| `WP_ADMIN_USER`         | Must match `MYSQL_PASSWORD`                   |
-| `WP_ADMIN_EMAIL`        | Set to `mariadb` (Docker DNS name)            |
-| `WP_USER`               | WordPress site title                          |
-| `WP_EMAIL`              | WordPress admin login                         |
-| `CERT_FOLDER`           | WordPress admin password                      |
-| `CERTIFICATE`           | WordPress admin email                         |
-| `KEY`                   | Secondary WordPress user (editor)             |
-| `COUNTRY`               | Secondary user password                       |
-| `LOCALITY`              | Secondary user email                          |
-| `ORGANIZATION`          | Full public URL, e.g. `https://edobele.42.fr` |
-| `UNIT`                  | Nginx `server_name`, e.g. `edobele.42.fr`     |
-| `COMMON_NAME`           | Nginx `server_name`, e.g. `edobele.42.fr`     |
+| `DB_HOST`               | Database host                                 |
+| `DB_SCRIPT_SQL`         | SQL init file                                 |
+| ***`WP_URL`***          | Site's custom URL                             |
+| `WP_FULL_URL`           | Site's custom URL with https protocol         |
+| ***`WP_TITLE`***        | WordPress site title                          |
+| ***`WP_ADMIN_USER`***   | WordPress admin login                         |
+| ***`WP_ADMIN_EMAIL`***  | WordPress admin email                         |
+| ***`WP_USER`***         | WordPress user login                          |
+| ***`WP_EMAIL`***        | WordPress user email                          |
+| `CERT_FOLDER`           | SSL certificate director                      |
+| `CERTIFICATE`           | SSL certificate                               |
+| `KEY`                   | SSL key                                       |
+| ***`COUNTRY`***         | WordPress site country                        |
+| ***`LOCALITY`***        | WordPress site locality                       |
+| `ORGANIZATION`          | WordPress site organization                   |
+| `UNIT`                  | WordPress site unit                           |
+| ***`COMMON_NAME`***     | WordPress site URL                            |
 
 ## Makefile guide
 

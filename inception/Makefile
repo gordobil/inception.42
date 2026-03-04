@@ -54,11 +54,9 @@ env:
 		read STATE && echo "STATE=$$STATE" >> ./src/.env; \
 		echo "Locality:"; \
 		read LOCALITY && echo "LOCALITY=$$LOCALITY" >> ./src/.env; \
-		echo "Organization:"; \
-		read ORGANIZATION && echo "ORGANIZATION=$$ORGANIZATION" >> ./src/.env; \
-		echo "Unit:"; \
-		read UNIT && echo "UNIT=$$UNIT" >> ./src/.env; \
-		echo "Common name:"; \
+		echo "ORGANIZATION=42" >> ./src/.env; \
+		echo "UNIT=Cadet" >> ./src/.env; \
+		echo "Common name (Site URL):"; \
 		echo "COMMON_NAME=$$COMMON_NAME" >> ./src/.env > /dev/null; \
 		fi
 
