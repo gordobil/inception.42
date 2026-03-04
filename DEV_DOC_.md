@@ -31,7 +31,7 @@ Both environment variables and secrets or passwords are submited by the user jus
 | `UNIT`                  | WordPress site unit                   |
 | ***`COMMON_NAME`***     | WordPress site URL                    |
 
-## Makefile guide
+### Makefile guide
 
 | Makefile command | Called command                                       | Description                        |
 | ---------------- | ---------------------------------------------------- | ---------------------------------- |
