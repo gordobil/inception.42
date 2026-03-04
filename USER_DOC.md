@@ -17,15 +17,18 @@ The Inception stack runs three services that work together to host a self-manage
 
 ### Start the project
 
-1.  Install Docker Engine, Docker Compose and Make.
-2.  Build and run: `make` (in the root repository).
-3.  Fill in your desired passwords.
-4.  Fill in your environment variables.
-5.  To check that the project started correctly and all the services are running: `make status`.
-6.  Open a browser and go to: `https://$(URL)`.
+1.  Clone the repository: `git clone <repo_url> Inception`.
+2.  Install Docker Engine, Docker Compose and Make.
+3.  Build and run: `make` (in the root repository).
+4.  Fill in your desired passwords.
+5.  Fill in your environment variables.
+6.  To check that the project started correctly and all the services are running: `make status`.
+7.  Open a browser and go to: `https://$(URL)`.
     The certificate is self-signed and your browser will show a security warning. Click **Advanced → Accept the risk and continue**.
-7.  Go to `https://$(URL)/wp-admin`to access the administration panel.
-8.  Log in with the WordPress anministrator credentials.
+8.  Go to `https://$(URL)/wp-admin`to access the administration panel.
+9.  Log in with the WordPress administrator credentials.
+
+> Add `127.0.0.1 $(URL)` to `/etc/hosts` if needed.
 
 > All the credentials and variables previously filled are stored in `srcs/.env`. For more information, see [DEV_DOC.md](DEV_DOC.md).
 
@@ -33,21 +36,3 @@ The Inception stack runs three services that work together to host a self-manage
 
 - To stop the containers: `make stop`.
 - To stop the containers and clean the project: `make fclean`.
-
-### Makefile guide
-
-```bash
-make            # build + up
-make build      # data + secrets + env
-make data       # Create host data directories
-make secrets    # Create and fill password files
-make env        # Create and fill .env file
-make up         # Run containers
-make status     # Show running containers
-make logs       # Show container logs
-make help       # Makefile command guide
-make stop       # Stop containers
-make restart    # Restart containers
-make fclean     # Stop and remove containers
-make re         # fclean + build + up
-```
