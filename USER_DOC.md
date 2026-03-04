@@ -11,7 +11,7 @@ The Inception stack runs three services that work together to host a self-manage
 
 - ***MariaDB***: it's the database that stores all the website’s content and it is only accessible internally.
 
-> All saved data (database files, uploads, themes, and plugins) is stored on the host machine in: /home/$(USER)/data/
+> All saved data (database files, uploads, themes, and plugins) is stored on the host machine in: /home/<USER>/data/
 
 ## User guide
 
@@ -22,6 +22,7 @@ The Inception stack runs three services that work together to host a self-manage
 3.  Fill in your desired passwords.
 4.  Fill in your environment variables.
 5.  To check that the project started correctly: `make status`.
+6.  Open a browser and go to: `https://<URL>`
 
 ### Stop the project
 
