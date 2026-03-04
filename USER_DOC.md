@@ -11,7 +11,7 @@ The Inception stack runs three services that work together to host a self-manage
 
 - ***MariaDB***: it's the database that stores all the website’s content and it is only accessible internally.
 
-> All saved data (database files, uploads, themes, and plugins) is stored on the host machine in: /home/<USER>/data/
+> All saved data (database files, uploads, themes, and plugins) is stored on the host machine in: /home/`<USER>`/data/
 
 ## User guide
 
