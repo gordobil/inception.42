@@ -62,14 +62,14 @@ Both environment variables and secrets or passwords are submited by the user jus
 ├── .gitignore
 ├── Makefile
 ├── README.md
-├── *secrets*
+├── *secrets
 │   ├── db_password
 │   ├── db_root_password
 │   ├── wp_admin_password
 │   └── wp_password
 ├── src
 │   ├── docker-compose.yml
-│   ├── *.env*
+│   ├── *.env
 │   └── requirements
 │       ├── mariadb
 │       │   ├── conf
@@ -90,4 +90,4 @@ Both environment variables and secrets or passwords are submited by the user jus
 └── USER_DOC.md
 ```
 
-> The *marked* directories and files are created when the project is cmpiled.
+> The *marked directories and files are created when the project is cmpiled.
