@@ -38,3 +38,20 @@ make restart    # Restart containers
 make fclean     # Stop and remove containers
 make re         # fclean + build + up
 ```
+
+## Resources
+
+### Documentation
+
+- Docker Engine: https://docs.docker.com/engine/
+- Docker Compose: https://docs.docker.com/compose/
+- Mariadb: https://mariadb.org/documentation/
+- Nginx: https://nginx.org/en/docs/
+- Wordpress: https://wordpress.org/documentation/
+
+### Inception resources
+
+- Inception Virtual Machine building guide: https://github.com/Bakr-1/inceptionVm-guide
+- Inception guide: https://github.com/waltergcc/42-inception/tree/main
+
+> In this project AI assistance has only been used to fix very specific issues that could not be fixed in any other way.
