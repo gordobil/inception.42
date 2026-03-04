@@ -17,27 +17,12 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 ## Instructions
 
 > For a complete step-by-step setup guide, see [DEV_DOC.md](DEV_DOC.md).
+> For more information on the Makefile commands, see [USER_DOC.md](USER_DOC.md).
 
 1.  Install Docker Engine, Docker Compose and Make.
-2.  Build and run: `make`
+2.  Build and run: `make` (in the root repository).
 3.  Fill in your desired passwords.
 4.  Fill in your environment variables.
-
-```bash
-make            # build + up
-make build      # data + secrets + env
-make data       # Create host data directories
-make secrets    # Create and fill password files
-make env        # Create and fill .env file
-make up         # Run containers
-make status     # Show running containers
-make logs       # Show container logs
-make help       # Makefile command guide
-make stop       # Stop containers
-make restart    # Restart containers
-make fclean     # Stop and remove containers
-make re         # fclean + build + up
-```
 
 ## Resources
 
