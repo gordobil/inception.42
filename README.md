@@ -17,6 +17,7 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 ## Instructions
 
 > For a complete step-by-step setup guide, see [DEV_DOC.md](DEV_DOC.md).
+
 > For more information on the Makefile commands, see [USER_DOC.md](USER_DOC.md).
 
 1.  Install Docker Engine, Docker Compose and Make.
