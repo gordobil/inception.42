@@ -7,44 +7,44 @@ Both environment variables and secrets or passwords are submited by the user jus
 
 ### `.env` guide
 
-> The ***marked*** variables are submited by the user just when they compile the project.
+> The ***marked*** variables are submited by the user when they compile the project.
 
-| Variable                | Description                                   |
-| ----------------------- | --------------------------------------------- |
-| `BD_NAME`               | WordPress database name                       |
-| ***`DB_USER`***         | MariaDB application user                      |
-| `DB_HOST`               | Database host                                 |
-| `DB_SCRIPT_SQL`         | SQL init file                                 |
-| ***`WP_URL`***          | Site's custom URL                             |
-| `WP_FULL_URL`           | Site's custom URL with https protocol         |
-| ***`WP_TITLE`***        | WordPress site title                          |
-| ***`WP_ADMIN_USER`***   | WordPress admin login                         |
-| ***`WP_ADMIN_EMAIL`***  | WordPress admin email                         |
-| ***`WP_USER`***         | WordPress user login                          |
-| ***`WP_EMAIL`***        | WordPress user email                          |
-| `CERT_FOLDER`           | SSL certificate director                      |
-| `CERTIFICATE`           | SSL certificate                               |
-| `KEY`                   | SSL key                                       |
-| ***`COUNTRY`***         | WordPress site country                        |
-| ***`LOCALITY`***        | WordPress site locality                       |
-| `ORGANIZATION`          | WordPress site organization                   |
-| `UNIT`                  | WordPress site unit                           |
-| ***`COMMON_NAME`***     | WordPress site URL                            |
+| Variable                | Description                           |
+| ----------------------- | ------------------------------------- |
+| `BD_NAME`               | WordPress database name               |
+| ***`DB_USER`***         | MariaDB application user              |
+| `DB_HOST`               | Database host                         |
+| `DB_SCRIPT_SQL`         | SQL init file                         |
+| ***`WP_URL`***          | Site's custom URL                     |
+| `WP_FULL_URL`           | Site's custom URL with https protocol |
+| ***`WP_TITLE`***        | WordPress site title                  |
+| ***`WP_ADMIN_USER`***   | WordPress admin login                 |
+| ***`WP_ADMIN_EMAIL`***  | WordPress admin email                 |
+| ***`WP_USER`***         | WordPress user login                  |
+| ***`WP_EMAIL`***        | WordPress user email                  |
+| `CERT_FOLDER`           | SSL certificate director              |
+| `CERTIFICATE`           | SSL certificate                       |
+| `KEY`                   | SSL key                               |
+| ***`COUNTRY`***         | WordPress site country                |
+| ***`LOCALITY`***        | WordPress site locality               |
+| `ORGANIZATION`          | WordPress site organization           |
+| `UNIT`                  | WordPress site unit                   |
+| ***`COMMON_NAME`***     | WordPress site URL                    |
 
 ## Makefile guide
 
-```bash
-make            # build + up
-make build      # data + secrets + env
-make data       # Create host data directories
-make secrets    # Create and fill password files
-make env        # Create and fill .env file
-make up         # Run containers
-make status     # Show running containers
-make logs       # Show container logs
-make help       # Makefile command guide
-make stop       # Stop containers
-make restart    # Restart containers
-make fclean     # Stop and remove containers
-make re         # fclean + build + up
-```
+| Makefile command | Called command                                       | Description                        |
+| ---------------- | ---------------------------------------------------- | ---------------------------------- |
+| `make`           | `make all` / `make build`                            | Build and start Docker containers. |
+| `make build`     | `data` + `secrets` + `env` + `docker compose up ...` | Create all the required files.     |
+| `make data`      | `mkdir -p /home/$(USER)/data/mariadb && ...`         | Create host data directories.      |
+| `make secrets`   | `mkdir -p ./secrets && touch ./secrets/ ...`         | Create and fill password files.    |
+| `make env`       | `touch ./src/.env && echo "WP_URL= ...`              | Create and fill .env file.         |
+| `make up`        | `docker compose -f $(DC_FILE) up -d`                 | Run containers.                    |
+| `make status`    | `docker compose -f $(DC_FILE) ps -a`                 | Show running containers.           |
+| `make logs`      | `docker compose -f $(DC_FILE) logs`                  | Show container logs.               |
+| `make help`      | `echo "MAKEFILE COMMA ...`                           | Makefile command guide.            |
+| `make stop`      | `docker compose -f $(DC_FILE) stop`                  | Stop containers.                   |
+| `make restart`   | `docker compose -f $(DC_FILE) restart`               | Restart containers.                |
+| `make fclean`    | `docker compose -f $(DC_FILE) down && rm /home/ ...` | Remove containers and volume data. |
+| `make re`        | `stop` + `fclean` + `all`                            | Stop, clean and rebuild project.   |
