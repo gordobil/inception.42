@@ -32,6 +32,7 @@ The Inception stack runs three services that work together to host a self-manage
 
 > All the credentials and variables previously filled are stored in `srcs/.env`. For more information, see [DEV_DOC.md](DEV_DOC.md).
 
+
 ### Stop the project
 
 - To stop the containers: `make stop`.

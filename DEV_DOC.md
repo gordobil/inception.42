@@ -5,6 +5,7 @@
 
 Both environment variables and secrets or passwords are submited by the user just as they compile the project, and they are stored in `srcs/.env` and `secrets/` respectively.
 
+
 ### `.env` guide
 
 > The ***marked*** variables are submited by the user when they compile the project.
@@ -31,6 +32,7 @@ Both environment variables and secrets or passwords are submited by the user jus
 | `UNIT`                  | WordPress site unit                   |
 | ***`COMMON_NAME`***     | WordPress site URL                    |
 
+
 ### Makefile guide
 
 | Makefile command | Called command                                       | Description                        |
@@ -48,3 +50,42 @@ Both environment variables and secrets or passwords are submited by the user jus
 | `make restart`   | `docker compose -f $(DC_FILE) restart`               | Restart containers.                |
 | `make fclean`    | `docker compose -f $(DC_FILE) down && rm /home/ ...` | Remove containers and volume data. |
 | `make re`        | `stop` + `fclean` + `all`                            | Stop, clean and rebuild project.   |
+
+> The project's data is stored in `/home/data/wordpress/` and `/home/data/mariadb/`. The data remains in the directories and in the containers even if you restart them. It is only removed when you clean the project: `make fclean`.
+
+
+### Repository structure
+
+.
+├── DEV_DOC_.md
+├── .gitignore
+├── Makefile
+├── README.md
+├── *secrets*
+│   ├── db_password
+│   ├── db_root_password
+│   ├── wp_admin_password
+│   └── wp_password
+├── src
+│   ├── docker-compose.yml
+│   ├── *.env*
+│   └── requirements
+│       ├── mariadb
+│       │   ├── conf
+│       │   │   └── 50-server.cnf
+│       │   ├── Dockerfile
+│       │   └── tools
+│       │       └── mariadb-run.sh
+│       ├── nginx
+│       │   ├── conf
+│       │   │   └── nginx.conf
+│       │   └── Dockerfile
+│       └── wordpress
+│           ├── conf
+│           │   └── www.conf
+│           ├── Dockerfile
+│           └── tools
+│               └── wp-install.sh
+└── USER_DOC.md
+
+> The *marked* directories and files are created when the project is cmpiled.

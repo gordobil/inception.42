@@ -14,16 +14,19 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 
 ***Docker volumes*** are managed by Docker and are portable and independent from the host filesystem. ***Bind mounts*** map a specific host directory into a container, which makes them more flexible for development but dependent on the host structure.
 
+
 ## Instructions
 
-> For a complete step-by-step setup guide, see [DEV_DOC.md](DEV_DOC.md).
+> For a complete step-by-step setup guide and more information on the Makefile commands, see [DEV_DOC.md](DEV_DOC.md).
 
-> For more information on the Makefile commands, see [USER_DOC.md](USER_DOC.md).
+1.  Clone the repository: `git clone <repo_url> Inception`.
+2.  Install Docker Engine, Docker Compose and Make.
+3.  Build and run: `make` (in the root repository).
+4.  Fill in your desired passwords.
+5.  Fill in your environment variables.
 
-1.  Install Docker Engine, Docker Compose and Make.
-2.  Build and run: `make` (in the root repository).
-3.  Fill in your desired passwords.
-4.  Fill in your environment variables.
+> Add `127.0.0.1 $(URL)` to `/etc/hosts` if needed.
+
 
 ## Resources
 
