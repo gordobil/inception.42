@@ -23,7 +23,7 @@ The Inception stack runs three services that work together to host a self-manage
 4.  Fill in your environment variables.
 5.  To check that the project started correctly and all the services are running: `make status`.
 6.  Open a browser and go to: `https://$(URL)`.
-    The certificate is self-signed. Your browser will show a security warning. Click **Advanced → Accept the risk and continue**.
+    The certificate is self-signed and your browser will show a security warning. Click **Advanced → Accept the risk and continue**.
 7.  Go to `https://$(URL)/wp-admin`to access the administration panel.
 8.  Log in with the WordPress anministrator credentials.
 
