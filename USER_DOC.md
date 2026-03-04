@@ -25,9 +25,9 @@ The Inception stack runs three services that work together to host a self-manage
 
 ### Stop the project
 
-To stop the containers: `make stop`.
+- To stop the containers: `make stop`.
 
-To stop the containers and clean the project: `make fclean`.
+- To stop the containers and clean the project: `make fclean`.
 
 ### Makefile guide
 
