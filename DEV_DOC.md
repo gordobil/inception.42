@@ -95,4 +95,4 @@ This information is used throughout the project and configuration files, and no 
 
 ## More information on...
 
-[USER_DOC.md](README.md) and [DEV_DOC.md](USER_DOC.md).
+[README.md](README.md) and [USER_DOC.md](USER_DOC.md).

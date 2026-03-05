@@ -40,4 +40,4 @@ The Inception stack runs three services that work together to host a self-manage
 
 ## More information on...
 
-[USER_DOC.md](README.md) and [DEV_DOC.md](DEV_DOC.md).
+[README.md](README.md) and [DEV_DOC.md](DEV_DOC.md).
