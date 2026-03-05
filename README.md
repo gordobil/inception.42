@@ -48,6 +48,4 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 
 [USER_DOC.md](USER_DOC.md) and [DEV_DOC.md](DEV_DOC.md).
 
-
-
 > In this project, AI assistance has only been used to fix very specific issues that could not be fixed in any other way.
