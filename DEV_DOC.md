@@ -3,7 +3,8 @@
 
 ## Environment variables and secrets
 
-Both environment variables and secrets or passwords are submited by the user just as they compile the project, and they are stored in `srcs/.env` and `secrets/` respectively.
+Both environment variables and secrets, or passwords, are submited by the user just as they compile the project, and they are stored in `srcs/.env` and `secrets/` respectively.
+This information is used throughout the project and configuration files, and no additional configuration is required.
 
 
 ### `.env` guide
@@ -90,4 +91,4 @@ Both environment variables and secrets or passwords are submited by the user jus
 └── USER_DOC.md
 ```
 
-> The *marked directories and files are created when the project is cmpiled.
+> The *marked directories and files are created when the project is compiled.

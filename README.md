@@ -24,8 +24,9 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 3.  Build and run: `make` (in the root repository).
 4.  Fill in your desired passwords.
 5.  Fill in your environment variables.
+6.  Open a browser and go to: `https://$(your_site's_url)`.
 
-> Add `127.0.0.1 $(URL)` to `/etc/hosts` if needed.
+> Add `127.0.0.1 $(your_site's_url)` to `/etc/hosts` if needed.
 
 
 ## Resources
@@ -43,4 +44,4 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 - Inception Virtual Machine building guide: https://github.com/Bakr-1/inceptionVm-guide
 - Inception guide: https://github.com/waltergcc/42-inception/tree/main
 
-> In this project AI assistance has only been used to fix very specific issues that could not be fixed in any other way.
+> In this project, AI assistance has only been used to fix very specific issues that could not be fixed in any other way.
