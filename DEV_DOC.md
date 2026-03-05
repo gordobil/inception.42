@@ -33,6 +33,8 @@ This information is used throughout the project and configuration files, and no 
 | `UNIT`                  | WordPress site unit                   |
 | ***`COMMON_NAME`***     | WordPress site URL                    |
 
+> You should **never** commit your `secrets/` directory or your `.env` file into your repository.
+
 
 ### Makefile guide
 
@@ -42,7 +44,7 @@ This information is used throughout the project and configuration files, and no 
 | `make build`     | `data` + `secrets` + `env` + `docker compose up ...` | Create all the required files.     |
 | `make data`      | `mkdir -p /home/$(USER)/data/mariadb && ...`         | Create host data directories.      |
 | `make secrets`   | `mkdir -p ./secrets && touch ./secrets/ ...`         | Create and fill password files.    |
-| `make env`       | `touch ./src/.env && echo "WP_URL= ...`              | Create and fill .env file.         |
+| `make env`       | `touch ./srcs/.env && echo "WP_URL= ...`              | Create and fill .env file.         |
 | `make up`        | `docker compose -f $(DC_FILE) up -d`                 | Run containers.                    |
 | `make status`    | `docker compose -f $(DC_FILE) ps -a`                 | Show running containers.           |
 | `make logs`      | `docker compose -f $(DC_FILE) logs`                  | Show container logs.               |
@@ -68,7 +70,7 @@ This information is used throughout the project and configuration files, and no 
 │   ├── db_root_password
 │   ├── wp_admin_password
 │   └── wp_password
-├── src
+├── srcs
 │   ├── docker-compose.yml
 │   ├── *.env
 │   └── requirements

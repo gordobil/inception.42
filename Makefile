@@ -1,5 +1,5 @@
 
-DC_FILE		= ./src/docker-compose.yml
+DC_FILE		= ./srcs/docker-compose.yml
 
 all:	build
 
@@ -25,39 +25,39 @@ secrets:
 		@echo "\n";
 
 env:
-		@if [ ! -f "./src/.env" ]; then \
-		sudo touch ./src/.env; \
+		@if [ ! -f "./srcs/.env" ]; then \
+		sudo touch ./srcs/.env; \
 		echo "Database user:"; \
-		read DB_USER && echo "DB_USER=$$DB_USER" >> ./src/.env; \
-		echo "DB_NAME=wordpress" >> ./src/.env; \
-		echo "DB_HOST=mariadb" >> ./src/.env; \
-		echo "DB_SCRIPT_SQL=/etc/mysql/init.sql\n" >> ./src/.env; \
+		read DB_USER && echo "DB_USER=$$DB_USER" >> ./srcs/.env; \
+		echo "DB_NAME=wordpress" >> ./srcs/.env; \
+		echo "DB_HOST=mariadb" >> ./srcs/.env; \
+		echo "DB_SCRIPT_SQL=/etc/mysql/init.sql\n" >> ./srcs/.env; \
 		echo "URL (yourUsername.42.fr):"; \
-		read WP_URL && echo "WP_URL=$$WP_URL" >> ./src/.env; \
-		echo "WP_FULL_URL=https://$$WP_URL" >> ./src/.env; \
+		read WP_URL && echo "WP_URL=$$WP_URL" >> ./srcs/.env; \
+		echo "WP_FULL_URL=https://$$WP_URL" >> ./srcs/.env; \
 		echo "Site title:"; \
-		read WP_TITLE && echo "WP_TITLE=$$WP_TITLE" >> ./src/.env; \
+		read WP_TITLE && echo "WP_TITLE=$$WP_TITLE" >> ./srcs/.env; \
 		echo "Site admin username:"; \
-		read WP_ADMIN_USER && echo "WP_ADMIN_USER=$$WP_ADMIN_USER" >> ./src/.env; \
+		read WP_ADMIN_USER && echo "WP_ADMIN_USER=$$WP_ADMIN_USER" >> ./srcs/.env; \
 		echo "Site admin email:"; \
-		read WP_ADMIN_EMAIL && echo "WP_ADMIN_EMAIL=$$WP_ADMIN_EMAIL" >> ./src/.env; \
+		read WP_ADMIN_EMAIL && echo "WP_ADMIN_EMAIL=$$WP_ADMIN_EMAIL" >> ./srcs/.env; \
 		echo "Site user:"; \
-		read WP_USER && echo "WP_USER=$$WP_USER" >> ./src/.env; \
+		read WP_USER && echo "WP_USER=$$WP_USER" >> ./srcs/.env; \
 		echo "Site user email:"; \
-		read WP_EMAIL && echo "WP_EMAIL=$$WP_EMAIL\n" >> ./src/.env; \
-		echo "CERT_FOLDER=/etc/nginx/certs" >> ./src/.env; \
-		echo "CERTIFICATE=nginx-selfsigned.crt" >> ./src/.env; \
-		echo "KEY=nginx-selfsigned.key\n" >> ./src/.env; \
+		read WP_EMAIL && echo "WP_EMAIL=$$WP_EMAIL\n" >> ./srcs/.env; \
+		echo "CERT_FOLDER=/etc/nginx/certs" >> ./srcs/.env; \
+		echo "CERTIFICATE=nginx-selfsigned.crt" >> ./srcs/.env; \
+		echo "KEY=nginx-selfsigned.key\n" >> ./srcs/.env; \
 		echo "Country (abbreviation in uppercase):"; \
-		read COUNTRY && echo "COUNTRY=$$COUNTRY" >> ./src/.env; \
+		read COUNTRY && echo "COUNTRY=$$COUNTRY" >> ./srcs/.env; \
 		echo "State:"; \
-		read STATE && echo "STATE=$$STATE" >> ./src/.env; \
+		read STATE && echo "STATE=$$STATE" >> ./srcs/.env; \
 		echo "Locality:"; \
-		read LOCALITY && echo "LOCALITY=$$LOCALITY" >> ./src/.env; \
-		echo "ORGANIZATION=42" >> ./src/.env; \
-		echo "UNIT=Cadet" >> ./src/.env; \
+		read LOCALITY && echo "LOCALITY=$$LOCALITY" >> ./srcs/.env; \
+		echo "ORGANIZATION=42" >> ./srcs/.env; \
+		echo "UNIT=Cadet" >> ./srcs/.env; \
 		echo "Common name (Site URL):"; \
-		echo "COMMON_NAME=$$COMMON_NAME" >> ./src/.env > /dev/null; \
+		echo "COMMON_NAME=$$COMMON_NAME" >> ./srcs/.env > /dev/null; \
 		fi
 
 
