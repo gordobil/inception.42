@@ -17,7 +17,7 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 
 ## Instructions
 
-> For a complete step-by-step setup guide and more information on the Makefile commands, see [DEV_DOC.md](DEV_DOC.md).
+> For a complete step-by-step setup guide, see [USER_DOC.md](USER_DOC.md); and for more information on the environment variables and the Makefile commands, see [DEV_DOC.md](DEV_DOC.md).
 
 1.  Clone the repository: `git clone <repo_url> Inception`.
 2.  Install Docker Engine, Docker Compose and Make.
@@ -43,5 +43,10 @@ The project uses ***Docker containers instead of virtual machines***, because vi
 
 - Inception Virtual Machine building guide: https://github.com/Bakr-1/inceptionVm-guide
 - Inception guide: https://github.com/waltergcc/42-inception/tree/main
+
+### More information on...
+
+[USER_DOC.md](USER_DOC.md) and [DEV_DOC.md](DEV_DOC.md).
+
 
 > In this project, AI assistance has only been used to fix very specific issues that could not be fixed in any other way.
