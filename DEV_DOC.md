@@ -92,3 +92,7 @@ This information is used throughout the project and configuration files, and no 
 ```
 
 > The *marked directories and files are created when the project is compiled.
+
+## More information on...
+
+[USER_DOC.md](README.md) and [DEV_DOC.md](USER_DOC.md).
