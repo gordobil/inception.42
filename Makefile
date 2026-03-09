@@ -57,7 +57,8 @@ env:
 		echo "ORGANIZATION=42" >> ./srcs/.env; \
 		echo "UNIT=Cadet" >> ./srcs/.env; \
 		echo "Common name (Site URL):"; \
-		echo "COMMON_NAME=$$COMMON_NAME" >> ./srcs/.env > /dev/null; \
+		read COMMON_NAME && echo "COMMON_NAME=$$COMMON_NAME" >> ./srcs/.env; \
+		./srcs/.env > /dev/null; \
 		fi
 
 
