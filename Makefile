@@ -98,6 +98,8 @@ stop:
 down:
 		@docker compose -f $(DC_FILE) down
 
+rebuild: down up
+
 fclean:
 		@sudo rm -rf /home/$(USER)/data/mariadb && sudo rm -rf /home/$(USER)/data/wordpress
 		@docker compose -f $(DC_FILE) down -v --rmi all --remove-orphans

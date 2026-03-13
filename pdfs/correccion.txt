@@ -5,7 +5,8 @@ openssl s_client -connect ngordobi.42.fr:443 -tls1_3
 https://ngordobi.42.fr/wp-admin
 
 docker exec -it mariadb-cont bash
-mysql -u root
 mysql -u user1 -p
-SHOW DATABASES;
-
+show databases;
+use "database_name";
+show tables;
+describe "table_name";
