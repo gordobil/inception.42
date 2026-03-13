@@ -14,13 +14,13 @@ secrets:
 		sudo touch ./secrets/db_password ./secrets/db_root_password; \
 		sudo touch ./secrets/wp_admin_password ./secrets/wp_password; \
 		echo "Database root password:"; \
-		read DB_ROOT_PASSWORD && echo $$DB_ROOT_PASSWORD >> ./secrets/db_root_password > /dev/null; \
+		read DB_ROOT_PASSWORD && echo $$DB_ROOT_PASSWORD >> ./secrets/db_root_password; \
 		echo "Database user password:"; \
-		read DB_PASSWORD && echo $$DB_PASSWORD >> ./secrets/db_password > /dev/null; \
+		read DB_PASSWORD && echo $$DB_PASSWORD >> ./secrets/db_password; \
 		echo "Site admin password:"; \
-		read WP_ADMIN_PASSWORD && echo $$WP_ADMIN_PASSWORD >> ./secrets/wp_admin_password > /dev/null; \
+		read WP_ADMIN_PASSWORD && echo $$WP_ADMIN_PASSWORD >> ./secrets/wp_admin_password; \
 		echo "Site user password:"; \
-		read WP_PASSWORD && echo $$WP_PASSWORD >> ./secrets/wp_password > /dev/null; \
+		read WP_PASSWORD && echo $$WP_PASSWORD >> ./secrets/wp_password; \
 		fi
 		@echo "\n";
 
@@ -58,7 +58,6 @@ env:
 		echo "UNIT=Cadet" >> ./srcs/.env; \
 		echo "Common name (Site URL):"; \
 		read COMMON_NAME && echo "COMMON_NAME=$$COMMON_NAME" >> ./srcs/.env; \
-		./srcs/.env > /dev/null; \
 		fi
 
 
