@@ -44,13 +44,14 @@ This information is used throughout the project and configuration files, and no 
 | `make build`     | `data` + `secrets` + `env` + `docker compose up ...` | Create all the required files.     |
 | `make data`      | `mkdir -p /home/$(USER)/data/mariadb && ...`         | Create host data directories.      |
 | `make secrets`   | `mkdir -p ./secrets && touch ./secrets/ ...`         | Create and fill password files.    |
-| `make env`       | `touch ./srcs/.env && echo "WP_URL= ...`              | Create and fill .env file.         |
+| `make env`       | `touch ./srcs/.env && echo "WP_URL= ...`             | Create and fill .env file.         |
 | `make up`        | `docker compose -f $(DC_FILE) up -d`                 | Run containers.                    |
 | `make status`    | `docker compose -f $(DC_FILE) ps -a`                 | Show running containers.           |
 | `make logs`      | `docker compose -f $(DC_FILE) logs`                  | Show container logs.               |
 | `make help`      | `echo "MAKEFILE COMMA ...`                           | Makefile command guide.            |
 | `make stop`      | `docker compose -f $(DC_FILE) stop`                  | Stop containers.                   |
 | `make restart`   | `docker compose -f $(DC_FILE) restart`               | Restart containers.                |
+| `make rebuild`   | `down` + `up`                                        | Rebuild containers.                |
 | `make fclean`    | `docker compose -f $(DC_FILE) down && rm /home/ ...` | Remove containers and volume data. |
 | `make re`        | `stop` + `fclean` + `all`                            | Stop, clean and rebuild project.   |
 
